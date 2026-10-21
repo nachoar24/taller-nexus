@@ -3,14 +3,306 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Taller Nexus</title>
+
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
 
-    <h1>Taller Nexus</h1>
-    <p>Prototipo web para la gestión de citas y órdenes de servicio.</p>
+    <div class="app-container">
+
+        <!-- Barra lateral -->
+        <aside class="sidebar">
+
+            <div class="brand">
+                <h1>Taller Nexus</h1>
+                <p>Gestión de taller</p>
+            </div>
+
+            <nav class="navigation">
+
+                <button class="nav-button active" data-section="dashboard">
+                    Dashboard
+                </button>
+
+                <button class="nav-button" data-section="clientes">
+                    Clientes
+                </button>
+
+                <button class="nav-button" data-section="vehiculos">
+                    Vehículos
+                </button>
+
+                <button class="nav-button" data-section="citas">
+                    Citas
+                </button>
+
+                <button class="nav-button" data-section="ordenes">
+                    Órdenes de servicio
+                </button>
+
+            </nav>
+
+        </aside>
+
+
+        <!-- Contenido principal -->
+        <main class="main-content">
+
+            <!-- Dashboard -->
+            <section id="dashboard" class="page-section active-section">
+
+                <header class="page-header">
+                    <div>
+                        <h2>Dashboard</h2>
+                        <p>Resumen general de Taller Nexus</p>
+                    </div>
+                </header>
+
+                <div class="cards-container">
+
+                    <div class="summary-card">
+                        <span class="card-label">Clientes registrados</span>
+                        <strong id="total-clientes">0</strong>
+                    </div>
+
+                    <div class="summary-card">
+                        <span class="card-label">Vehículos</span>
+                        <strong>0</strong>
+                    </div>
+
+                    <div class="summary-card">
+                        <span class="card-label">Citas</span>
+                        <strong>0</strong>
+                    </div>
+
+                    <div class="summary-card">
+                        <span class="card-label">Órdenes activas</span>
+                        <strong>0</strong>
+                    </div>
+
+                </div>
+
+                <div class="welcome-panel">
+
+                    <h3>Bienvenido a Taller Nexus</h3>
+
+                    <p>
+                        Utiliza el menú lateral para gestionar la información
+                        del taller.
+                    </p>
+
+                    <p class="status-text">
+                        Sprint 1: Gestión inicial de clientes.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- Clientes -->
+            <section id="clientes" class="page-section">
+
+                <header class="page-header">
+                    <div>
+                        <h2>Clientes</h2>
+                        <p>Registro y administración de clientes del taller.</p>
+                    </div>
+                </header>
+
+
+                <!-- Formulario -->
+                <div class="panel">
+
+                    <h3 id="form-title">Registrar cliente</h3>
+
+                    <form id="cliente-form">
+
+                        <input
+                            type="hidden"
+                            id="cliente-id"
+                        >
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+
+                                <label for="nombre">
+                                    Nombre completo
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="nombre"
+                                    placeholder="Ej. Carlos Rodríguez"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="telefono">
+                                    Teléfono
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="telefono"
+                                    placeholder="Ej. 8888-8888"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="correo">
+                                    Correo electrónico
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="correo"
+                                    placeholder="Ej. cliente@email.com"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-actions">
+
+                            <button
+                                type="submit"
+                                class="primary-button"
+                                id="guardar-cliente"
+                            >
+                                Guardar cliente
+                            </button>
+
+                            <button
+                                type="button"
+                                class="secondary-button hidden"
+                                id="cancelar-edicion"
+                            >
+                                Cancelar edición
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+
+                <!-- Tabla -->
+                <div class="panel">
+
+                    <div class="panel-header">
+                        <h3>Clientes registrados</h3>
+
+                        <span id="cantidad-clientes">
+                            0 clientes
+                        </span>
+                    </div>
+
+                    <div class="table-container">
+
+                        <table>
+
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Teléfono</th>
+                                    <th>Correo</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="clientes-table-body">
+                            </tbody>
+
+                        </table>
+
+                        <p
+                            id="sin-clientes"
+                            class="empty-message"
+                        >
+                            No hay clientes registrados todavía.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Vehículos -->
+            <section id="vehiculos" class="page-section">
+
+                <header class="page-header">
+                    <div>
+                        <h2>Vehículos</h2>
+                        <p>Módulo planificado para una próxima iteración.</p>
+                    </div>
+                </header>
+
+                <div class="coming-soon">
+                    Funcionalidad pendiente de desarrollo.
+                </div>
+
+            </section>
+
+
+            <!-- Citas -->
+            <section id="citas" class="page-section">
+
+                <header class="page-header">
+                    <div>
+                        <h2>Citas</h2>
+                        <p>Módulo planificado para una próxima iteración.</p>
+                    </div>
+                </header>
+
+                <div class="coming-soon">
+                    Funcionalidad pendiente de desarrollo.
+                </div>
+
+            </section>
+
+
+            <!-- Órdenes -->
+            <section id="ordenes" class="page-section">
+
+                <header class="page-header">
+                    <div>
+                        <h2>Órdenes de servicio</h2>
+                        <p>Módulo planificado para una próxima iteración.</p>
+                    </div>
+                </header>
+
+                <div class="coming-soon">
+                    Funcionalidad pendiente de desarrollo.
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
 
     <script src="js/app.js"></script>
+    <script src="js/clientes.js"></script>
+
 </body>
 </html>
