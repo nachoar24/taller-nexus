@@ -68,54 +68,50 @@ taller-nexus/
 
 ## Estado del proyecto
 
-**Semana 5 - Ciclo de vida del proyecto y ejecución del Sprint 1.**
+**Semana 5 - Ciclo de vida del proyecto y Sprint 1 completado.**
 
-### Sprint actual
+### Sprint 1
 
 **Sprint 1 - Base funcional y gestión inicial de clientes**
 
-### Sprint Goal
+**Sprint Goal:** Construir la base navegable de Taller Nexus e implementar una primera funcionalidad de gestión de clientes que permita demostrar el inicio funcional del prototipo.
 
-Construir la base navegable de Taller Nexus e implementar una primera funcionalidad de gestión de clientes que permita demostrar el inicio funcional del prototipo.
+**Estado:** Completado.
 
-### Alcance del Sprint 1
+### Incremento obtenido
 
-Durante el Sprint 1 se trabajará inicialmente en:
+Durante el Sprint 1 se implementó:
 
-- Estructura general de la aplicación
-- Navegación principal
-- Diseño visual inicial
-- Módulo de clientes
+- Estructura general de Taller Nexus
+- Navegación entre módulos
+- Dashboard inicial
+- Módulo funcional de clientes
 - Registro de clientes
 - Visualización de clientes
 - Edición de clientes
 - Eliminación de clientes
-- Persistencia de información mediante `localStorage`
+- Persistencia mediante `localStorage`
+- Indicador dinámico de clientes registrados en el Dashboard
 
-### Avance actual
+Los módulos de Vehículos, Citas y Órdenes de servicio se encuentran incluidos en la navegación, pero permanecen pendientes para futuras iteraciones.
+
+### Avance del proyecto
 
 Hasta el momento se ha completado:
 
-- Definición inicial del proyecto
 - Project Charter
 - Product Goal
 - Conformación del Scrum Team
-- Contexto organizacional
-- Restricciones del proyecto
-- Identificación de stakeholders
+- Contexto organizacional y restricciones
+- Identificación y análisis de stakeholders
 - Mapa de interesados
-- Definición del ciclo de vida del proyecto
-- Planificación inicial del Sprint 1
-- Creación de la estructura inicial del proyecto
-- Creación del archivo `clientes.js`
+- Definición del ciclo de vida
+- Planificación del Sprint 1
+- Desarrollo del primer incremento funcional
+- Pruebas funcionales del Sprint 1
+- Sprint Review
+- Sprint Retrospective
 
-## Próximos pasos
+## Próxima etapa
 
-- Desarrollar la interfaz base de Taller Nexus
-- Implementar la navegación principal
-- Desarrollar el formulario de clientes
-- Implementar almacenamiento mediante `localStorage`
-- Implementar consulta, edición y eliminación de clientes
-- Realizar pruebas funcionales
-- Ejecutar la Sprint Review
-- Registrar la retrospectiva del Sprint 1
+La siguiente etapa del proyecto corresponde a la **Semana 6**, donde se trabajará en el Backlog inicial, Sprint Backlog y mecanismo de seguimiento del proyecto.
