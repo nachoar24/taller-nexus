@@ -112,7 +112,7 @@ Durante el Sprint 1 se implementó:
 
 ### Sprint 2 - Gestión de vehículos
 
-**Estado:** Iniciado.
+**Estado**: Completado
 
 ### Sprint Goal
 
@@ -179,3 +179,17 @@ Hasta el momento se ha completado:
 - Realizar pruebas funcionales
 - Completar Sprint Review y Sprint Retrospective
 - Continuar con la priorización formal del Product Backlog en la siguiente etapa del proyecto
+
+### Incremento obtenido en Sprint 2
+
+Durante el Sprint 2 se implementó:
+
+- Registro de vehículos
+- Asociación de vehículos con clientes existentes
+- Consulta de vehículos
+- Edición de vehículos
+- Eliminación de vehículos
+- Validación de placas duplicadas
+- Persistencia mediante `localStorage`
+- Contador dinámico de vehículos en el Dashboard
+- Pruebas funcionales del módulo
