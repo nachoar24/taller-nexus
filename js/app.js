@@ -59,11 +59,24 @@ function actualizarDashboard() {
     const clientes =
         JSON.parse(localStorage.getItem("clientes")) || [];
 
+    const vehiculos =
+        JSON.parse(localStorage.getItem("vehiculos")) || [];
+
+
     const totalClientes =
         document.getElementById("total-clientes");
 
+    const totalVehiculos =
+        document.getElementById("total-vehiculos");
+
+
     if (totalClientes) {
         totalClientes.textContent = clientes.length;
+    }
+
+
+    if (totalVehiculos) {
+        totalVehiculos.textContent = vehiculos.length;
     }
 
 }
@@ -74,5 +87,10 @@ function actualizarDashboard() {
 
 document.addEventListener(
     "clientesActualizados",
+    actualizarDashboard
+);
+
+document.addEventListener(
+    "vehiculosActualizados",
     actualizarDashboard
 );
