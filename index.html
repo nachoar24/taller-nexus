@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -70,7 +71,7 @@
 
                     <div class="summary-card">
                         <span class="card-label">Vehículos</span>
-                        <strong>0</strong>
+                        <strong id="total-vehiculos">0</strong>
                     </div>
 
                     <div class="summary-card">
@@ -121,10 +122,7 @@
 
                     <form id="cliente-form">
 
-                        <input
-                            type="hidden"
-                            id="cliente-id"
-                        >
+                        <input type="hidden" id="cliente-id">
 
                         <div class="form-grid">
 
@@ -134,12 +132,7 @@
                                     Nombre completo
                                 </label>
 
-                                <input
-                                    type="text"
-                                    id="nombre"
-                                    placeholder="Ej. Carlos Rodríguez"
-                                    required
-                                >
+                                <input type="text" id="nombre" placeholder="Ej. Carlos Rodríguez" required>
 
                             </div>
 
@@ -150,12 +143,7 @@
                                     Teléfono
                                 </label>
 
-                                <input
-                                    type="text"
-                                    id="telefono"
-                                    placeholder="Ej. 8888-8888"
-                                    required
-                                >
+                                <input type="text" id="telefono" placeholder="Ej. 8888-8888" required>
 
                             </div>
 
@@ -166,12 +154,7 @@
                                     Correo electrónico
                                 </label>
 
-                                <input
-                                    type="email"
-                                    id="correo"
-                                    placeholder="Ej. cliente@email.com"
-                                    required
-                                >
+                                <input type="email" id="correo" placeholder="Ej. cliente@email.com" required>
 
                             </div>
 
@@ -180,19 +163,11 @@
 
                         <div class="form-actions">
 
-                            <button
-                                type="submit"
-                                class="primary-button"
-                                id="guardar-cliente"
-                            >
+                            <button type="submit" class="primary-button" id="guardar-cliente">
                                 Guardar cliente
                             </button>
 
-                            <button
-                                type="button"
-                                class="secondary-button hidden"
-                                id="cancelar-edicion"
-                            >
+                            <button type="button" class="secondary-button hidden" id="cancelar-edicion">
                                 Cancelar edición
                             </button>
 
@@ -232,10 +207,7 @@
 
                         </table>
 
-                        <p
-                            id="sin-clientes"
-                            class="empty-message"
-                        >
+                        <p id="sin-clientes" class="empty-message">
                             No hay clientes registrados todavía.
                         </p>
 
@@ -252,12 +224,132 @@
                 <header class="page-header">
                     <div>
                         <h2>Vehículos</h2>
-                        <p>Módulo planificado para una próxima iteración.</p>
+                        <p>Registro y administración de vehículos del taller.</p>
                     </div>
                 </header>
 
-                <div class="coming-soon">
-                    Funcionalidad pendiente de desarrollo.
+                <!-- Formulario -->
+                <div class="panel">
+
+                    <h3 id="vehiculo-form-title">Registrar vehículo</h3>
+
+                    <form id="vehiculo-form">
+
+                        <input type="hidden" id="vehiculo-id">
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+
+                                <label for="vehiculo-propietario">
+                                    Propietario
+                                </label>
+
+                                <select id="vehiculo-propietario" required>
+                                    <option value="">
+                                        Seleccione un cliente
+                                    </option>
+                                </select>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="vehiculo-marca">
+                                    Marca
+                                </label>
+
+                                <input type="text" id="vehiculo-marca" placeholder="Ej. Honda" required>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="vehiculo-modelo">
+                                    Modelo
+                                </label>
+
+                                <input type="text" id="vehiculo-modelo" placeholder="Ej. Civic" required>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="vehiculo-anio">
+                                    Año
+                                </label>
+
+                                <input type="number" id="vehiculo-anio" placeholder="Ej. 2015" min="1900" max="2100"
+                                    required>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="vehiculo-placa">
+                                    Placa
+                                </label>
+
+                                <input type="text" id="vehiculo-placa" placeholder="Ej. ABC123" required>
+
+                            </div>
+
+                        </div>
+
+                        <div class="form-actions">
+
+                            <button type="submit" class="primary-button" id="guardar-vehiculo">
+                                Guardar vehículo
+                            </button>
+
+                            <button type="button" class="secondary-button hidden" id="cancelar-edicion-vehiculo">
+                                Cancelar edición
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+                <!-- Tabla -->
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <h3>Vehículos registrados</h3>
+
+                        <span id="cantidad-vehiculos">
+                            0 vehículos
+                        </span>
+
+                    </div>
+
+                    <div class="table-container">
+
+                        <table>
+
+                            <thead>
+                                <tr>
+                                    <th>Propietario</th>
+                                    <th>Vehículo</th>
+                                    <th>Año</th>
+                                    <th>Placa</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="vehiculos-table-body">
+                            </tbody>
+
+                        </table>
+
+                        <p id="sin-vehiculos" class="empty-message">
+                            No hay vehículos registrados todavía.
+                        </p>
+
+                    </div>
+
                 </div>
 
             </section>
@@ -303,6 +395,8 @@
 
     <script src="js/app.js"></script>
     <script src="js/clientes.js"></script>
+    <script src="js/vehiculos.js"></script>
 
 </body>
+
 </html>

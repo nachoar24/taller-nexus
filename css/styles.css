@@ -239,16 +239,20 @@ input {
     font-size: 14px;
 }
 
-.form-group input {
+.form-group input,
+.form-group select {
     padding: 11px;
 
     border: 1px solid #d1d5db;
     border-radius: 6px;
 
     outline: none;
+
+    background: white;
 }
 
-.form-group input:focus {
+.form-group input:focus,
+.form-group select:focus {
     border-color: #4b5563;
 }
 
