@@ -62,7 +62,8 @@ taller-nexus/
 ├── js/
 │   ├── app.js
 │   ├── clientes.js
-│   └── vehiculos.js
+│   ├── vehiculos.js
+│   └── citas.js
 └── assets/
     └── images/
 ```
@@ -81,9 +82,9 @@ El Product Backlog actual de Taller Nexus está compuesto por 13 historias de us
 
 ### Estado actual del Product Backlog
 
-- **6 historias completadas**
+- **8 historias completadas**
 - **1 historia en desarrollo incremental**
-- **6 historias pendientes**
+- **4 historias pendientes**
 - **13 historias en total**
 
 Las historias relacionadas con Clientes y Vehículos fueron completadas durante los Sprints 1 y 2.
@@ -200,3 +201,27 @@ El próximo incremento continuará el flujo funcional:
 **Cliente → Vehículo → Cita**
 
 Posteriormente, esta información servirá como base para incorporar las órdenes de servicio.
+
+### Sprint 3 - Gestión de citas
+
+**Estado:** Completado.
+
+### Sprint Goal
+
+Implementar la gestión de citas en Taller Nexus, permitiendo programar citas asociadas a clientes y vehículos existentes, consultar la información registrada, modificarla y eliminarla cuando sea necesario.
+
+### Incremento obtenido
+
+Durante el Sprint 3 se implementó:
+
+- Selección de clientes registrados
+- Filtrado de vehículos por propietario
+- Programación de citas
+- Consulta de citas
+- Edición de citas
+- Eliminación de citas
+- Persistencia mediante `localStorage`
+- Contador dinámico de citas en el Dashboard
+- Pruebas funcionales
+- Sprint Review
+- Sprint Retrospective
