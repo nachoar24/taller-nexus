@@ -61,14 +61,15 @@ taller-nexus/
 │   └── styles.css
 ├── js/
 │   ├── app.js
-│   └── clientes.js
+│   ├── clientes.js
+│   └── vehiculos.js
 └── assets/
     └── images/
 ```
 
-## Backlog inicial
+## Product Backlog
 
-El Backlog inicial de Taller Nexus contempla historias de usuario relacionadas con los siguientes módulos:
+El Product Backlog actual de Taller Nexus está compuesto por 13 historias de usuario relacionadas con los siguientes módulos:
 
 - Clientes
 - Vehículos
@@ -78,23 +79,51 @@ El Backlog inicial de Taller Nexus contempla historias de usuario relacionadas c
 - Historial de servicios
 - Dashboard
 
-Las historias correspondientes al módulo de Clientes fueron completadas durante el Sprint 1.
+### Estado actual del Product Backlog
 
-Las funcionalidades restantes serán desarrolladas progresivamente durante los siguientes Sprints.
+- **6 historias completadas**
+- **1 historia en desarrollo incremental**
+- **6 historias pendientes**
+- **13 historias en total**
+
+Las historias relacionadas con Clientes y Vehículos fueron completadas durante los Sprints 1 y 2.
+
+La funcionalidad correspondiente al Dashboard se desarrolla progresivamente conforme se incorporan nuevos módulos.
 
 ## Estado del proyecto
 
-**Semana 6 - Backlog inicial, Sprint Backlog y mecanismo de seguimiento.**
+**Semana 7 - Declaración de alcance, Product Backlog priorizado y criterios de aceptación.**
 
-### Sprint 1
+Hasta el momento se ha completado:
 
-**Sprint 1 - Base funcional y gestión inicial de clientes**
+- Project Charter
+- Product Goal
+- Conformación del Scrum Team
+- Contexto organizacional
+- Restricciones del proyecto
+- Identificación y análisis de stakeholders
+- Mapa de interesados
+- Ciclo de vida del proyecto
+- Sprint 1
+- Sprint 2
+- Backlog inicial
+- Sprint Backlog
+- Mecanismo de seguimiento
+- Declaración de alcance
+- Product Backlog priorizado
+- Criterios de aceptación
+
+## Sprints completados
+
+### Sprint 1 - Base funcional y gestión inicial de clientes
 
 **Estado:** Completado.
 
-**Sprint Goal:** Construir la base navegable de Taller Nexus e implementar una primera funcionalidad de gestión de clientes que permita demostrar el inicio funcional del prototipo.
+### Sprint Goal
 
-### Incremento obtenido en Sprint 1
+Construir la base navegable de Taller Nexus e implementar una primera funcionalidad de gestión de clientes que permita demostrar el inicio funcional del prototipo.
+
+### Incremento obtenido
 
 Durante el Sprint 1 se implementó:
 
@@ -107,80 +136,21 @@ Durante el Sprint 1 se implementó:
 - Eliminación de clientes
 - Persistencia mediante `localStorage`
 - Contador dinámico de clientes registrados
+- Pruebas funcionales
+- Sprint Review
+- Sprint Retrospective
 
-## Sprint actual
+---
 
 ### Sprint 2 - Gestión de vehículos
 
-**Estado**: Completado
+**Estado:** Completado.
 
 ### Sprint Goal
 
 Implementar la gestión básica de vehículos en Taller Nexus, permitiendo registrar cada vehículo y asociarlo con un cliente existente, así como consultar, modificar y eliminar la información almacenada.
 
-### Historias seleccionadas
-
-- Registrar vehículos y asociarlos con sus propietarios
-- Consultar vehículos registrados
-- Modificar vehículos
-- Eliminar vehículos
-- Actualizar el indicador de vehículos registrados en el Dashboard
-
-### Tareas previstas
-
-- Crear `vehiculos.js`
-- Crear el formulario de registro de vehículos
-- Asociar vehículos con clientes existentes
-- Implementar persistencia mediante `localStorage`
-- Mostrar vehículos registrados
-- Implementar edición de vehículos
-- Implementar eliminación de vehículos
-- Actualizar el contador de vehículos en el Dashboard
-- Realizar pruebas funcionales
-- Ejecutar Sprint Review y Sprint Retrospective
-
-## Mecanismo de seguimiento
-
-El trabajo de cada Sprint será gestionado mediante los siguientes estados:
-
-- **Pendiente**
-- **En progreso**
-- **En revisión / pruebas**
-- **Completado**
-
-El repositorio GitHub permitirá mantener evidencia adicional de la evolución del proyecto mediante commits descriptivos y el historial de cambios.
-
-## Avance académico
-
-Hasta el momento se ha completado:
-
-- Project Charter
-- Product Goal
-- Scrum Team
-- Contexto organizacional
-- Restricciones del proyecto
-- Identificación y análisis de stakeholders
-- Mapa de interesados
-- Ciclo de vida del proyecto
-- Sprint 1
-- Pruebas funcionales del Sprint 1
-- Sprint Review del Sprint 1
-- Sprint Retrospective del Sprint 1
-- Backlog inicial
-- Sprint Backlog del Sprint 2
-- Mecanismo de seguimiento
-
-## Próximos pasos
-
-- Ejecutar el Sprint 2
-- Implementar el módulo de vehículos
-- Asociar vehículos con clientes existentes
-- Actualizar el Dashboard
-- Realizar pruebas funcionales
-- Completar Sprint Review y Sprint Retrospective
-- Continuar con la priorización formal del Product Backlog en la siguiente etapa del proyecto
-
-### Incremento obtenido en Sprint 2
+### Incremento obtenido
 
 Durante el Sprint 2 se implementó:
 
@@ -192,4 +162,41 @@ Durante el Sprint 2 se implementó:
 - Validación de placas duplicadas
 - Persistencia mediante `localStorage`
 - Contador dinámico de vehículos en el Dashboard
-- Pruebas funcionales del módulo
+- Pruebas funcionales
+- Sprint Review
+- Sprint Retrospective
+
+## Mecanismo de seguimiento
+
+El trabajo de cada Sprint se gestiona mediante los siguientes estados:
+
+- **Pendiente**
+- **En progreso**
+- **En revisión / pruebas**
+- **Completado**
+
+El repositorio GitHub mantiene evidencia adicional de la evolución del proyecto mediante commits descriptivos y el historial de cambios.
+
+## Priorización actual
+
+El orden lógico de desarrollo definido para las principales funcionalidades es:
+
+**Clientes → Vehículos → Citas → Órdenes de servicio → Historial**
+
+El Dashboard se desarrolla progresivamente conforme se incorporan los diferentes módulos.
+
+## Próximo incremento
+
+El siguiente incremento funcional estará enfocado en la **gestión de citas**.
+
+Las historias previstas son:
+
+- **HU-07:** Programar citas asociadas a un cliente y vehículo.
+- **HU-08:** Consultar, modificar y eliminar citas programadas.
+- **HU-13:** Incorporar al Dashboard el indicador correspondiente a citas.
+
+El próximo incremento continuará el flujo funcional:
+
+**Cliente → Vehículo → Cita**
+
+Posteriormente, esta información servirá como base para incorporar las órdenes de servicio.
