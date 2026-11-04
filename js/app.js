@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
+    // Cargar valores iniciales del Dashboard
     actualizarDashboard();
 
 });
@@ -56,41 +57,71 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function actualizarDashboard() {
 
+    // Obtener información almacenada
     const clientes =
         JSON.parse(localStorage.getItem("clientes")) || [];
 
     const vehiculos =
         JSON.parse(localStorage.getItem("vehiculos")) || [];
 
+    const citas =
+        JSON.parse(localStorage.getItem("citas")) || [];
 
+
+    // Obtener elementos del Dashboard
     const totalClientes =
         document.getElementById("total-clientes");
 
     const totalVehiculos =
         document.getElementById("total-vehiculos");
 
+    const totalCitas =
+        document.getElementById("total-citas");
 
+
+    // Actualizar contador de clientes
     if (totalClientes) {
         totalClientes.textContent = clientes.length;
     }
 
 
+    // Actualizar contador de vehículos
     if (totalVehiculos) {
         totalVehiculos.textContent = vehiculos.length;
+    }
+
+
+    // Actualizar contador de citas
+    if (totalCitas) {
+        totalCitas.textContent = citas.length;
     }
 
 }
 
 
-// Permite actualizar dashboard
-// cuando clientes.js modifica información
+// ===============================
+// Actualización automática
+// ===============================
 
+// Actualizar Dashboard cuando
+// clientes.js modifica información
 document.addEventListener(
     "clientesActualizados",
     actualizarDashboard
 );
 
+
+// Actualizar Dashboard cuando
+// vehiculos.js modifica información
 document.addEventListener(
     "vehiculosActualizados",
+    actualizarDashboard
+);
+
+
+// Actualizar Dashboard cuando
+// citas.js modifica información
+document.addEventListener(
+    "citasActualizadas",
     actualizarDashboard
 );
