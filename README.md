@@ -6,6 +6,8 @@ Prototipo web para la gestión de citas y órdenes de servicio de un taller auto
 
 ISW-912 - Administración de Proyectos Informáticos
 
+Universidad Técnica Nacional.
+
 ## Integrantes
 
 - Ignacio Araya Rojas
@@ -20,7 +22,7 @@ ISW-912 - Administración de Proyectos Informáticos
 
 Taller Nexus es un prototipo web funcional orientado a pequeños talleres automotrices.
 
-El sistema busca centralizar la gestión básica de clientes, vehículos, citas y órdenes de servicio, permitiendo además dar seguimiento al estado de los trabajos y consultar el historial de servicios realizados a cada vehículo.
+El sistema busca centralizar la gestión básica de clientes, vehículos, citas y órdenes de servicio, permitiendo dar seguimiento al estado de los trabajos y consultar el historial de servicios realizados a cada vehículo.
 
 El proyecto se desarrolla como parte del Proyecto Incremental del curso ISW-912, utilizando Scrum como marco de trabajo.
 
@@ -28,7 +30,7 @@ El proyecto se desarrolla como parte del Proyecto Incremental del curso ISW-912,
 
 Desarrollar un prototipo web que permita a pequeños talleres automotrices centralizar la gestión básica de clientes, vehículos, citas y órdenes de servicio, facilitando el seguimiento del estado de los trabajos y la consulta del historial de atención de cada vehículo.
 
-## Funcionalidades previstas
+## Funcionalidades del proyecto
 
 - Gestión de clientes
 - Gestión de vehículos
@@ -40,18 +42,22 @@ Desarrollar un prototipo web que permita a pequeños talleres automotrices centr
 
 ## Tecnologías
 
-- HTML
-- CSS
+- HTML5
+- CSS3
 - JavaScript
 - localStorage
 
 ## Alcance técnico
 
-Taller Nexus será desarrollado como un prototipo web funcional sin backend ni base de datos externa.
+Taller Nexus se desarrolla como un prototipo web funcional sin backend ni base de datos externa.
 
-La información será almacenada localmente en el navegador mediante `localStorage`, permitiendo demostrar las principales funcionalidades del sistema sin necesidad de infraestructura adicional.
+La información se almacena localmente en el navegador mediante `localStorage`, permitiendo demostrar las funcionalidades del sistema sin necesidad de infraestructura adicional.
 
-## Estructura actual del proyecto
+El prototipo está diseñado principalmente para un único usuario operativo: el encargado del taller.
+
+No contempla autenticación real, sincronización entre dispositivos, facturación electrónica ni integraciones externas.
+
+## Estructura del proyecto
 
 ```text
 taller-nexus/
@@ -63,165 +69,263 @@ taller-nexus/
 │   ├── app.js
 │   ├── clientes.js
 │   ├── vehiculos.js
-│   └── citas.js
+│   ├── citas.js
+│   └── ordenes.js
 └── assets/
     └── images/
 ```
 
 ## Product Backlog
 
-El Product Backlog actual de Taller Nexus está compuesto por 13 historias de usuario relacionadas con los siguientes módulos:
+El Product Backlog de Taller Nexus está compuesto por 13 historias de usuario relacionadas con los módulos principales del prototipo.
 
-- Clientes
-- Vehículos
-- Citas
-- Órdenes de servicio
-- Seguimiento de estados
-- Historial de servicios
-- Dashboard
+### Estado al cierre del Sprint 4
 
-### Estado actual del Product Backlog
+| Estado | Cantidad |
+|---|---:|
+| Completadas | 10 |
+| En desarrollo incremental | 1 |
+| Pendientes | 2 |
+| **Total** | **13** |
 
-- **8 historias completadas**
-- **1 historia en desarrollo incremental**
-- **4 historias pendientes**
-- **13 historias en total**
+### Historias completadas
 
-Las historias relacionadas con Clientes y Vehículos fueron completadas durante los Sprints 1 y 2.
+- HU-01 — Registrar clientes
+- HU-02 — Consultar clientes
+- HU-03 — Modificar y eliminar clientes
+- HU-04 — Registrar vehículos asociados a propietarios
+- HU-05 — Consultar vehículos
+- HU-06 — Modificar y eliminar vehículos
+- HU-07 — Programar citas
+- HU-08 — Consultar y modificar citas
+- HU-09 — Crear órdenes de servicio
+- HU-11 — Consultar órdenes de servicio
 
-La funcionalidad correspondiente al Dashboard se desarrolla progresivamente conforme se incorporan nuevos módulos.
+### Historia en desarrollo incremental
+
+- HU-13 — Indicadores generales del Dashboard
+
+### Historias pendientes
+
+- HU-10 — Actualizar el estado de las órdenes de servicio
+- HU-12 — Consultar historial de servicios por vehículo
+
+El Product Backlog se revisa periódicamente para mantener las funcionalidades alineadas con el Product Goal.
 
 ## Estado del proyecto
 
-**Semana 7 - Declaración de alcance, Product Backlog priorizado y criterios de aceptación.**
+**Semana 8 — Planificación temporal, estimaciones, cronograma de entregas y costos.**
 
-Hasta el momento se ha completado:
+**Estado de la semana:** Completada.
 
-- Project Charter
-- Product Goal
-- Conformación del Scrum Team
-- Contexto organizacional
-- Restricciones del proyecto
-- Identificación y análisis de stakeholders
-- Mapa de interesados
-- Ciclo de vida del proyecto
-- Sprint 1
-- Sprint 2
-- Backlog inicial
-- Sprint Backlog
-- Mecanismo de seguimiento
-- Declaración de alcance
-- Product Backlog priorizado
-- Criterios de aceptación
+### Avance académico
+
+Hasta el momento se han desarrollado las siguientes secciones del Expediente del Proyecto:
+
+- Sección 00 — Portada e identificación del equipo
+- Sección 01 — Problema, oportunidad, Product Goal y Project Charter
+- Sección 02 — Contexto organizacional y restricciones
+- Sección 03 — Interesados y mapa de stakeholders
+- Sección 04 — Ciclo de vida y Sprint 1
+- Sección 05 — Backlog inicial, Sprint Backlog y seguimiento
+- Sección 06 — Alcance, Product Backlog priorizado y criterios de aceptación
+- Sección 07 — Planificación temporal, estimaciones, cronograma y costos
+
+Las siguientes secciones continuarán desarrollándose progresivamente hasta la entrega oficial de la Semana 13.
+
+## Planificación temporal
+
+El proyecto contempla un desarrollo incremental desde la Semana 3 hasta la Semana 13.
+
+| Semana | Actividad principal | Estado |
+|---|---|---|
+| 3 | Project Charter, Product Goal y Scrum Team | Completada |
+| 4 | Contexto organizacional y stakeholders | Completada |
+| 5 | Sprint 1 — Gestión de clientes | Completada |
+| 6 | Sprint 2 — Gestión de vehículos | Completada |
+| 7 | Sprint 3 — Gestión de citas | Completada |
+| 8 | Sprint 4 — Órdenes de servicio | Completada |
+| 9 | Seguimiento de estados y gestión de riesgos | Planificada |
+| 10 | Historial, Dashboard y calidad | Planificada |
+| 11 | Comunicación, responsabilidades y mejoras | Planificada |
+| 12 | Integración, evidencias y preparación de Demo | Planificada |
+| 13 | Entrega final y defensa del proyecto | Planificada |
+
+## Estimación de esfuerzo y costos
+
+Se estableció una estimación académica inicial de **144 horas de trabajo**, distribuidas entre los dos integrantes.
+
+### Distribución estimada
+
+- Ignacio Araya Rojas: 72 horas
+- Felipe Carrera Araya: 72 horas
+
+### Estimación económica
+
+Para efectos académicos se utiliza una tarifa referencial de ₡3.000 por hora.
+
+| Concepto | Monto |
+|---|---:|
+| Esfuerzo humano estimado | ₡432.000 |
+| Herramientas y licencias adicionales | ₡0 |
+| Infraestructura y hosting | ₡0 |
+| Reserva de contingencia (10 %) | ₡43.200 |
+| **Costo económico estimado** | **₡475.200** |
+
+Los montos representan una valoración económica académica del esfuerzo, no gastos efectivamente realizados.
+
+El desembolso monetario directo previsto es de ₡0, debido al uso de herramientas gratuitas y recursos existentes.
+
+Las estimaciones y el cronograma podrán ajustarse conforme avance el proyecto.
 
 ## Sprints completados
 
-### Sprint 1 - Base funcional y gestión inicial de clientes
+### Sprint 1 — Base funcional y gestión de clientes
 
 **Estado:** Completado.
 
-### Sprint Goal
+**Sprint Goal:** Construir la base navegable de Taller Nexus e implementar una primera funcionalidad de gestión de clientes que permita demostrar el inicio funcional del prototipo.
 
-Construir la base navegable de Taller Nexus e implementar una primera funcionalidad de gestión de clientes que permita demostrar el inicio funcional del prototipo.
-
-### Incremento obtenido
-
-Durante el Sprint 1 se implementó:
+**Incremento obtenido:**
 
 - Estructura general de Taller Nexus
 - Navegación principal
 - Dashboard inicial
 - Registro de clientes
-- Visualización de clientes
+- Consulta de clientes
 - Edición de clientes
 - Eliminación de clientes
 - Persistencia mediante `localStorage`
-- Contador dinámico de clientes registrados
+- Contador dinámico de clientes
 - Pruebas funcionales
-- Sprint Review
-- Sprint Retrospective
+- Sprint Review y Sprint Retrospective
 
----
-
-### Sprint 2 - Gestión de vehículos
+### Sprint 2 — Gestión de vehículos
 
 **Estado:** Completado.
 
-### Sprint Goal
+**Sprint Goal:** Implementar la gestión básica de vehículos en Taller Nexus, permitiendo registrar cada vehículo y asociarlo con un cliente existente, así como consultar, modificar y eliminar la información almacenada.
 
-Implementar la gestión básica de vehículos en Taller Nexus, permitiendo registrar cada vehículo y asociarlo con un cliente existente, así como consultar, modificar y eliminar la información almacenada.
-
-### Incremento obtenido
-
-Durante el Sprint 2 se implementó:
+**Incremento obtenido:**
 
 - Registro de vehículos
-- Asociación de vehículos con clientes existentes
+- Asociación con clientes existentes
 - Consulta de vehículos
 - Edición de vehículos
 - Eliminación de vehículos
 - Validación de placas duplicadas
 - Persistencia mediante `localStorage`
-- Contador dinámico de vehículos en el Dashboard
+- Contador dinámico de vehículos
 - Pruebas funcionales
-- Sprint Review
-- Sprint Retrospective
+- Sprint Review y Sprint Retrospective
+
+### Sprint 3 — Gestión de citas
+
+**Estado:** Completado.
+
+**Sprint Goal:** Implementar la gestión de citas en Taller Nexus, permitiendo programar citas asociadas a clientes y vehículos existentes, consultar la información registrada, modificarla y eliminarla cuando sea necesario.
+
+**Incremento obtenido:**
+
+- Selección de clientes registrados
+- Filtrado de vehículos por propietario
+- Programación de citas
+- Registro de fecha, hora, servicio y observaciones
+- Consulta de citas
+- Edición de citas
+- Eliminación de citas
+- Persistencia mediante `localStorage`
+- Contador dinámico de citas
+- Pruebas funcionales
+- Sprint Review y Sprint Retrospective
+
+### Sprint 4 — Gestión inicial de órdenes de servicio
+
+**Estado:** Completado.
+
+**Sprint Goal:** Implementar la creación y consulta de órdenes de servicio en Taller Nexus, vinculando cada orden con clientes y vehículos existentes y almacenando la información de manera local.
+
+**Incremento obtenido:**
+
+- Creación del módulo de órdenes de servicio
+- Formulario para registrar órdenes
+- Selección de clientes existentes
+- Asociación con vehículos registrados
+- Registro del servicio solicitado
+- Registro de fecha de ingreso
+- Generación de un identificador para cada orden
+- Asignación del estado inicial «Recibido»
+- Consulta de órdenes registradas
+- Visualización de información básica y estado de las órdenes
+- Persistencia mediante `localStorage`
+- Integración con los módulos desarrollados anteriormente
+- Pruebas funcionales
+- Sprint Review y Sprint Retrospective
+
+El incremento permite registrar y consultar órdenes de servicio vinculadas a los vehículos del taller.
+
+La modificación de estados y el historial de servicios se incorporarán en Sprints posteriores.
 
 ## Mecanismo de seguimiento
 
-El trabajo de cada Sprint se gestiona mediante los siguientes estados:
+El trabajo se organiza mediante un tablero de seguimiento con cuatro estados:
 
 - **Pendiente**
 - **En progreso**
 - **En revisión / pruebas**
 - **Completado**
 
-El repositorio GitHub mantiene evidencia adicional de la evolución del proyecto mediante commits descriptivos y el historial de cambios.
+Las actividades se actualizan conforme avanza cada Sprint.
 
-## Priorización actual
+GitHub permite mantener evidencia de los cambios mediante commits descriptivos y el historial de versiones.
 
-El orden lógico de desarrollo definido para las principales funcionalidades es:
+Al finalizar cada Sprint se realizan pruebas funcionales, Sprint Review y Sprint Retrospective para evaluar los resultados obtenidos e identificar posibles mejoras.
 
-**Clientes → Vehículos → Citas → Órdenes de servicio → Historial**
+## Priorización del desarrollo
 
-El Dashboard se desarrolla progresivamente conforme se incorporan los diferentes módulos.
+El orden lógico de las funcionalidades principales es:
 
-## Próximo incremento
+**Clientes → Vehículos → Citas → Órdenes de servicio → Seguimiento de estados → Historial**
 
-El siguiente incremento funcional estará enfocado en la **gestión de citas**.
+El Dashboard evoluciona progresivamente conforme se implementan los módulos del sistema.
 
-Las historias previstas son:
+## Próxima etapa
 
-- **HU-07:** Programar citas asociadas a un cliente y vehículo.
-- **HU-08:** Consultar, modificar y eliminar citas programadas.
-- **HU-13:** Incorporar al Dashboard el indicador correspondiente a citas.
+### Semana 9 — Riesgos, adquisiciones y Sprint 5
 
-El próximo incremento continuará el flujo funcional:
+Las siguientes actividades estarán enfocadas en:
 
-**Cliente → Vehículo → Cita**
+- Elaborar el registro de riesgos del proyecto
+- Definir respuestas a los riesgos identificados
+- Documentar las necesidades de adquisiciones
+- Implementar la actualización de estados de órdenes de servicio
+- Realizar pruebas funcionales
+- Registrar evidencias y resultados del Sprint
 
-Posteriormente, esta información servirá como base para incorporar las órdenes de servicio.
+### Sprint 5 — Seguimiento de órdenes de servicio
 
-### Sprint 3 - Gestión de citas
+**Objetivo previsto:** Permitir actualizar el estado de las órdenes de servicio existentes para representar el avance de los trabajos realizados en el taller.
 
-**Estado:** Completado.
+Estados contemplados:
 
-### Sprint Goal
+1. Recibido
+2. En diagnóstico
+3. En reparación
+4. Listo para entrega
+5. Entregado
 
-Implementar la gestión de citas en Taller Nexus, permitiendo programar citas asociadas a clientes y vehículos existentes, consultar la información registrada, modificarla y eliminarla cuando sea necesario.
+Este incremento permitirá continuar el desarrollo del flujo principal de Taller Nexus y preparar la implementación del historial de servicios en la siguiente iteración.
 
-### Incremento obtenido
+## Entrega final
 
-Durante el Sprint 3 se implementó:
+La entrega oficial se realizará durante la Semana 13 del curso.
 
-- Selección de clientes registrados
-- Filtrado de vehículos por propietario
-- Programación de citas
-- Consulta de citas
-- Edición de citas
-- Eliminación de citas
-- Persistencia mediante `localStorage`
-- Contador dinámico de citas en el Dashboard
-- Pruebas funcionales
-- Sprint Review
-- Sprint Retrospective
+Se contempla presentar:
+
+- Expediente del Proyecto completo
+- Repositorio GitHub actualizado
+- Prototipo funcional Taller Nexus
+- Evidencias del desarrollo incremental
+- Informe final
+- Demostración del producto
+- Defensa del proyecto
