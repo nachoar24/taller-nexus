@@ -96,6 +96,9 @@ function actualizarDashboard() {
         totalCitas.textContent = citas.length;
     }
 
+    document.getElementById("total-ordenes-activas").textContent =
+        obtenerOrdenes().filter(orden => orden.estado !== "Entregado").length;
+
 }
 
 
@@ -125,3 +128,5 @@ document.addEventListener(
     "citasActualizadas",
     actualizarDashboard
 );
+
+document.addEventListener("ordenesActualizadas", actualizarDashboard);

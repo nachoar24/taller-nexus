@@ -79,7 +79,7 @@ taller-nexus/
 
 El Product Backlog de Taller Nexus está compuesto por 13 historias de usuario relacionadas con los módulos principales del prototipo.
 
-### Estado al cierre del Sprint 4
+### Estado del Product Backlog
 
 | Estado | Cantidad |
 |---|---:|
@@ -116,7 +116,7 @@ El Product Backlog se revisa periódicamente para mantener las funcionalidades a
 
 **Semana 8 — Planificación temporal, estimaciones, cronograma de entregas y costos.**
 
-**Estado de la semana:** Completada.
+**Estado de la semana:** Sección académica elaborada. Sprint 4 pendiente de cierre.
 
 ### Avance académico
 
@@ -144,7 +144,7 @@ El proyecto contempla un desarrollo incremental desde la Semana 3 hasta la Seman
 | 5 | Sprint 1 — Gestión de clientes | Completada |
 | 6 | Sprint 2 — Gestión de vehículos | Completada |
 | 7 | Sprint 3 — Gestión de citas | Completada |
-| 8 | Sprint 4 — Órdenes de servicio | Completada |
+| 8 | Sprint 4 — Órdenes de servicio | Pendiente de cierre |
 | 9 | Seguimiento de estados y gestión de riesgos | Planificada |
 | 10 | Historial, Dashboard y calidad | Planificada |
 | 11 | Comunicación, responsabilidades y mejoras | Planificada |
@@ -178,7 +178,7 @@ El desembolso monetario directo previsto es de ₡0, debido al uso de herramient
 
 Las estimaciones y el cronograma podrán ajustarse conforme avance el proyecto.
 
-## Sprints completados
+## Avance de los Sprints
 
 ### Sprint 1 — Base funcional y gestión de clientes
 
@@ -241,7 +241,7 @@ Las estimaciones y el cronograma podrán ajustarse conforme avance el proyecto.
 
 ### Sprint 4 — Gestión inicial de órdenes de servicio
 
-**Estado:** Completado.
+**Estado:** Incremento implementado. Prueba automatizada del flujo aprobada. Verificación en navegador, Sprint Review y Sprint Retrospective pendientes.
 
 **Sprint Goal:** Implementar la creación y consulta de órdenes de servicio en Taller Nexus, vinculando cada orden con clientes y vehículos existentes y almacenando la información de manera local.
 
@@ -251,7 +251,7 @@ Las estimaciones y el cronograma podrán ajustarse conforme avance el proyecto.
 - Formulario para registrar órdenes
 - Selección de clientes existentes
 - Asociación con vehículos registrados
-- Registro del servicio solicitado
+- Registro del servicio solicitado y su descripción
 - Registro de fecha de ingreso
 - Generación de un identificador para cada orden
 - Asignación del estado inicial «Recibido»
@@ -259,8 +259,7 @@ Las estimaciones y el cronograma podrán ajustarse conforme avance el proyecto.
 - Visualización de información básica y estado de las órdenes
 - Persistencia mediante `localStorage`
 - Integración con los módulos desarrollados anteriormente
-- Pruebas funcionales
-- Sprint Review y Sprint Retrospective
+- Indicador de órdenes activas en el Dashboard
 
 El incremento permite registrar y consultar órdenes de servicio vinculadas a los vehículos del taller.
 
