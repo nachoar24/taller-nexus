@@ -116,7 +116,7 @@ El Product Backlog se revisa periódicamente para mantener las funcionalidades a
 
 **Semana 8 — Planificación temporal, estimaciones, cronograma de entregas y costos.**
 
-**Estado de la semana:** Sección académica elaborada. Sprint 4 pendiente de cierre.
+**Estado de la semana:** Completada.
 
 ### Avance académico
 
@@ -144,7 +144,7 @@ El proyecto contempla un desarrollo incremental desde la Semana 3 hasta la Seman
 | 5 | Sprint 1 — Gestión de clientes | Completada |
 | 6 | Sprint 2 — Gestión de vehículos | Completada |
 | 7 | Sprint 3 — Gestión de citas | Completada |
-| 8 | Sprint 4 — Órdenes de servicio | Pendiente de cierre |
+| 8 | Sprint 4 — Órdenes de servicio | Completada |
 | 9 | Seguimiento de estados y gestión de riesgos | Planificada |
 | 10 | Historial, Dashboard y calidad | Planificada |
 | 11 | Comunicación, responsabilidades y mejoras | Planificada |
@@ -241,7 +241,7 @@ Las estimaciones y el cronograma podrán ajustarse conforme avance el proyecto.
 
 ### Sprint 4 — Gestión inicial de órdenes de servicio
 
-**Estado:** Incremento implementado. Prueba automatizada del flujo aprobada. Verificación en navegador, Sprint Review y Sprint Retrospective pendientes.
+**Estado:** Completado. El registro y la consulta de órdenes se validaron con pruebas automatizadas y en el navegador.
 
 **Sprint Goal:** Implementar la creación y consulta de órdenes de servicio en Taller Nexus, vinculando cada orden con clientes y vehículos existentes y almacenando la información de manera local.
 
@@ -287,6 +287,16 @@ El orden lógico de las funcionalidades principales es:
 **Clientes → Vehículos → Citas → Órdenes de servicio → Seguimiento de estados → Historial**
 
 El Dashboard evoluciona progresivamente conforme se implementan los módulos del sistema.
+
+## Sprint Review
+
+Se validó en el navegador el registro y la consulta de órdenes de servicio. Al seleccionar un cliente, el formulario mostró únicamente sus vehículos. La orden se guardó con un identificador único y el estado inicial «Recibido», apareció en el listado y se conservó al recargar la página. El Dashboard reflejó el aumento de órdenes activas.
+
+Con esta validación se cumplió el objetivo del Sprint 4 y se completaron la HU-09 y la HU-11. La actualización de estados se abordará en el Sprint 5 y el historial de servicios se incorporará en un sprint posterior.
+
+## Sprint Retrospective
+
+Usar el filtrado por propietario del módulo de citas como referencia facilitó la integración del formulario de órdenes. Para el Sprint 5, la mejora propuesta es preparar una lista breve de pruebas antes de implementar los cambios de estado. La lista incluirá verificar que, al marcar una orden como «Entregado», siga visible en el listado y deje de contar como activa en el Dashboard.
 
 ## Próxima etapa
 
