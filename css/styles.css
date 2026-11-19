@@ -383,6 +383,50 @@ td {
 
 
 /* ===============================
+   Estados de órdenes de servicio
+================================ */
+
+.acciones-orden {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 310px;
+}
+
+.orden-estado-select {
+    padding: 9px 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    background: white;
+    color: #1f2937;
+    font: inherit;
+    font-size: 13px;
+    cursor: pointer;
+    min-width: 165px;
+}
+
+.orden-estado-select:focus {
+    outline: none;
+    border-color: #4b5563;
+}
+
+.guardar-estado-orden {
+    white-space: nowrap;
+    font-size: 13px;
+}
+
+@media (max-width: 600px) {
+    .acciones-orden {
+        min-width: 280px;
+    }
+
+    .orden-estado-select {
+        min-width: 145px;
+    }
+}
+
+
+/* ===============================
    Responsive
 ================================ */
 
