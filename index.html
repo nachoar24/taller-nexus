@@ -43,6 +43,9 @@
                 <button class="nav-button" data-section="ordenes">
                     Órdenes de servicio
                 </button>
+                <button class="nav-button" data-section="historial">
+                    Historial
+                </button>
 
             </nav>
 
@@ -75,9 +78,9 @@
                     </div>
 
                     <div class="summary-card">
-    <span class="card-label">Citas</span>
-    <strong id="total-citas">0</strong>
-</div>
+                        <span class="card-label">Citas</span>
+                        <strong id="total-citas">0</strong>
+                    </div>
 
                     <div class="summary-card">
                         <span class="card-label">Órdenes activas</span>
@@ -358,199 +361,163 @@
             <!-- Citas -->
             <section id="citas" class="page-section">
 
-    <header class="page-header">
-        <div>
-            <h2>Citas</h2>
-            <p>Programación y administración de citas del taller.</p>
-        </div>
-    </header>
+                <header class="page-header">
+                    <div>
+                        <h2>Citas</h2>
+                        <p>Programación y administración de citas del taller.</p>
+                    </div>
+                </header>
 
 
-    <!-- Formulario -->
-    <div class="panel">
+                <!-- Formulario -->
+                <div class="panel">
 
-        <h3 id="cita-form-title">Programar cita</h3>
+                    <h3 id="cita-form-title">Programar cita</h3>
 
-        <form id="cita-form">
+                    <form id="cita-form">
 
-            <input
-                type="hidden"
-                id="cita-id"
-            >
+                        <input type="hidden" id="cita-id">
 
-            <div class="form-grid">
+                        <div class="form-grid">
 
-                <div class="form-group">
+                            <div class="form-group">
 
-                    <label for="cita-cliente">
-                        Cliente
-                    </label>
+                                <label for="cita-cliente">
+                                    Cliente
+                                </label>
 
-                    <select
-                        id="cita-cliente"
-                        required
-                    >
-                        <option value="">
-                            Seleccione un cliente
-                        </option>
-                    </select>
+                                <select id="cita-cliente" required>
+                                    <option value="">
+                                        Seleccione un cliente
+                                    </option>
+                                </select>
 
-                </div>
+                            </div>
 
 
-                <div class="form-group">
+                            <div class="form-group">
 
-                    <label for="cita-vehiculo">
-                        Vehículo
-                    </label>
+                                <label for="cita-vehiculo">
+                                    Vehículo
+                                </label>
 
-                    <select
-                        id="cita-vehiculo"
-                        required
-                    >
-                        <option value="">
-                            Seleccione un vehículo
-                        </option>
-                    </select>
+                                <select id="cita-vehiculo" required>
+                                    <option value="">
+                                        Seleccione un vehículo
+                                    </option>
+                                </select>
 
-                </div>
+                            </div>
 
 
-                <div class="form-group">
+                            <div class="form-group">
 
-                    <label for="cita-fecha">
-                        Fecha
-                    </label>
+                                <label for="cita-fecha">
+                                    Fecha
+                                </label>
 
-                    <input
-                        type="date"
-                        id="cita-fecha"
-                        required
-                    >
+                                <input type="date" id="cita-fecha" required>
 
-                </div>
+                            </div>
 
 
-                <div class="form-group">
+                            <div class="form-group">
 
-                    <label for="cita-hora">
-                        Hora
-                    </label>
+                                <label for="cita-hora">
+                                    Hora
+                                </label>
 
-                    <input
-                        type="time"
-                        id="cita-hora"
-                        required
-                    >
+                                <input type="time" id="cita-hora" required>
 
-                </div>
+                            </div>
 
 
-                <div class="form-group">
+                            <div class="form-group">
 
-                    <label for="cita-servicio">
-                        Servicio solicitado
-                    </label>
+                                <label for="cita-servicio">
+                                    Servicio solicitado
+                                </label>
 
-                    <input
-                        type="text"
-                        id="cita-servicio"
-                        placeholder="Ej. Cambio de aceite"
-                        required
-                    >
+                                <input type="text" id="cita-servicio" placeholder="Ej. Cambio de aceite" required>
 
-                </div>
+                            </div>
 
 
-                <div class="form-group full-width">
+                            <div class="form-group full-width">
 
-                    <label for="cita-observaciones">
-                        Observaciones
-                    </label>
+                                <label for="cita-observaciones">
+                                    Observaciones
+                                </label>
 
-                    <textarea
-                        id="cita-observaciones"
-                        rows="3"
-                        placeholder="Información adicional sobre la cita"
-                    ></textarea>
+                                <textarea id="cita-observaciones" rows="3"
+                                    placeholder="Información adicional sobre la cita"></textarea>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-actions">
+
+                            <button type="submit" class="primary-button" id="guardar-cita">
+                                Guardar cita
+                            </button>
+
+                            <button type="button" class="secondary-button hidden" id="cancelar-edicion-cita">
+                                Cancelar edición
+                            </button>
+
+                        </div>
+
+                    </form>
 
                 </div>
 
-            </div>
+
+                <!-- Tabla -->
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <h3>Citas programadas</h3>
+
+                        <span id="cantidad-citas">
+                            0 citas
+                        </span>
+
+                    </div>
 
 
-            <div class="form-actions">
+                    <div class="table-container">
 
-                <button
-                    type="submit"
-                    class="primary-button"
-                    id="guardar-cita"
-                >
-                    Guardar cita
-                </button>
+                        <table>
 
-                <button
-                    type="button"
-                    class="secondary-button hidden"
-                    id="cancelar-edicion-cita"
-                >
-                    Cancelar edición
-                </button>
+                            <thead>
+                                <tr>
+                                    <th>Cliente</th>
+                                    <th>Vehículo</th>
+                                    <th>Fecha</th>
+                                    <th>Hora</th>
+                                    <th>Servicio</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
 
-            </div>
+                            <tbody id="citas-table-body">
+                            </tbody>
 
-        </form>
-
-    </div>
+                        </table>
 
 
-    <!-- Tabla -->
-    <div class="panel">
+                        <p id="sin-citas" class="empty-message">
+                            No hay citas programadas todavía.
+                        </p>
 
-        <div class="panel-header">
+                    </div>
 
-            <h3>Citas programadas</h3>
+                </div>
 
-            <span id="cantidad-citas">
-                0 citas
-            </span>
-
-        </div>
-
-
-        <div class="table-container">
-
-            <table>
-
-                <thead>
-                    <tr>
-                        <th>Cliente</th>
-                        <th>Vehículo</th>
-                        <th>Fecha</th>
-                        <th>Hora</th>
-                        <th>Servicio</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-
-                <tbody id="citas-table-body">
-                </tbody>
-
-            </table>
-
-
-            <p
-                id="sin-citas"
-                class="empty-message"
-            >
-                No hay citas programadas todavía.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
+            </section>
 
 
             <!-- Órdenes -->
@@ -621,6 +588,75 @@
 
             </section>
 
+
+            <!-- Historial de servicios -->
+            <section id="historial" class="page-section">
+
+                <header class="page-header">
+                    <div>
+                        <h2>Historial de servicios</h2>
+                        <p>Consulta los servicios finalizados de cada vehículo.</p>
+                    </div>
+                </header>
+
+                <!-- Selección de vehículo -->
+                <div class="panel">
+
+                    <h3>Consultar historial</h3>
+
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+
+                            <label for="historial-vehiculo">
+                                Seleccionar vehículo
+                            </label>
+
+                            <select id="historial-vehiculo">
+                                <option value="">
+                                    Seleccione un vehículo
+                                </option>
+                            </select>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Servicios finalizados -->
+                <div class="panel">
+
+                    <div class="panel-header">
+                        <h3>Servicios finalizados</h3>
+                        <span id="cantidad-historial">0 servicios</span>
+                    </div>
+
+                    <div class="table-container">
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Fecha de ingreso</th>
+                                    <th>Servicio</th>
+                                    <th>Descripción</th>
+                                    <th>Estado</th>
+                                    <th>ID de orden</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="historial-table-body"></tbody>
+                        </table>
+
+                        <p id="sin-historial" class="empty-message">
+                            Seleccione un vehículo para consultar su historial.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
         </main>
 
     </div>
@@ -631,6 +667,7 @@
     <script src="js/vehiculos.js"></script>
     <script src="js/citas.js"></script>
     <script src="js/ordenes.js"></script>
+    <script src="js/historial.js"></script>
 
 </body>
 
