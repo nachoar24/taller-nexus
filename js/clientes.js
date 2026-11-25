@@ -327,10 +327,82 @@ function editarCliente(id) {
 
 
 // ===============================
+// Verificar registros asociados
+// ===============================
+
+function obtenerRegistrosAsociadosCliente(clienteId) {
+
+    const vehiculos = JSON.parse(
+        localStorage.getItem("vehiculos")
+    ) || [];
+
+    const citas = JSON.parse(
+        localStorage.getItem("citas")
+    ) || [];
+
+    const ordenes = JSON.parse(
+        localStorage.getItem("ordenes")
+    ) || [];
+
+    const vehiculosCliente = vehiculos.filter(
+        vehiculo => vehiculo.propietarioId === clienteId
+    );
+
+    const idsVehiculosCliente = new Set(
+        vehiculosCliente.map(vehiculo => vehiculo.id)
+    );
+
+    const tieneVehiculos = vehiculosCliente.length > 0;
+
+    const tieneCitas = citas.some(
+        cita =>
+            cita.clienteId === clienteId ||
+            idsVehiculosCliente.has(cita.vehiculoId)
+    );
+
+    const tieneOrdenes = ordenes.some(
+        orden =>
+            orden.clienteId === clienteId ||
+            idsVehiculosCliente.has(orden.vehiculoId)
+    );
+
+    const relaciones = [];
+
+    if (tieneVehiculos) {
+        relaciones.push("vehículos");
+    }
+
+    if (tieneCitas) {
+        relaciones.push("citas");
+    }
+
+    if (tieneOrdenes) {
+        relaciones.push("órdenes de servicio");
+    }
+
+    return relaciones;
+
+}
+
+
+// ===============================
 // Eliminar cliente
 // ===============================
 
 function eliminarCliente(id) {
+
+    const relaciones = obtenerRegistrosAsociadosCliente(id);
+
+    if (relaciones.length > 0) {
+
+        alert(
+            `No se puede eliminar este cliente porque tiene registros asociados: ${relaciones.join(", ")}.`
+        );
+
+        return;
+
+    }
+
 
     const confirmar =
         confirm(

@@ -64,6 +64,51 @@ function obtenerClientesVehiculos() {
 }
 
 
+function obtenerRegistrosAsociadosVehiculo(vehiculoId) {
+
+    const citas = JSON.parse(
+        localStorage.getItem("citas")
+    ) || [];
+
+    const ordenes = JSON.parse(
+        localStorage.getItem("ordenes")
+    ) || [];
+
+    const tieneCitas = citas.some(
+        cita => cita.vehiculoId === vehiculoId
+    );
+
+    const ordenesVehiculo = ordenes.filter(
+        orden => orden.vehiculoId === vehiculoId
+    );
+
+    const tieneOrdenesActivas = ordenesVehiculo.some(
+        orden => orden.estado !== "Entregado"
+    );
+
+    const tieneHistorial = ordenesVehiculo.some(
+        orden => orden.estado === "Entregado"
+    );
+
+    const relaciones = [];
+
+    if (tieneCitas) {
+        relaciones.push("citas");
+    }
+
+    if (tieneOrdenesActivas) {
+        relaciones.push("órdenes de servicio activas");
+    }
+
+    if (tieneHistorial) {
+        relaciones.push("órdenes entregadas en el historial");
+    }
+
+    return relaciones;
+
+}
+
+
 // ===============================
 // Guardar vehículos
 // ===============================
@@ -316,21 +361,51 @@ formularioVehiculo.addEventListener(
                 );
 
 
-            if (indice !== -1) {
+            if (indice === -1) {
 
-                vehiculos[indice] = {
+                alert(
+                    "No se encontró el vehículo que desea editar."
+                );
 
-                    ...vehiculos[indice],
-
-                    propietarioId,
-                    marca,
-                    modelo,
-                    anio,
-                    placa
-
-                };
+                limpiarFormularioVehiculo();
+                mostrarVehiculos();
+                return;
 
             }
+
+
+            const vehiculoActual = vehiculos[indice];
+
+            if (vehiculoActual.propietarioId !== propietarioId) {
+
+                const relaciones =
+                    obtenerRegistrosAsociadosVehiculo(idExistente);
+
+                if (relaciones.length > 0) {
+
+                    alert(
+                        `No se puede cambiar el propietario de este vehículo porque tiene registros asociados: ${relaciones.join(", ")}.`
+                    );
+
+                    selectPropietario.value = vehiculoActual.propietarioId;
+                    return;
+
+                }
+
+            }
+
+
+            vehiculos[indice] = {
+
+                ...vehiculoActual,
+
+                propietarioId,
+                marca,
+                modelo,
+                anio,
+                placa
+
+            };
 
         }
 
@@ -483,6 +558,20 @@ function editarVehiculo(id) {
 // ===============================
 
 function eliminarVehiculo(id) {
+
+    const relaciones =
+        obtenerRegistrosAsociadosVehiculo(id);
+
+    if (relaciones.length > 0) {
+
+        alert(
+            `No se puede eliminar este vehículo porque tiene registros asociados: ${relaciones.join(", ")}.`
+        );
+
+        return;
+
+    }
+
 
     const confirmar =
         confirm(
