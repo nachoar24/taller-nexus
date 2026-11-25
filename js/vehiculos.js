@@ -237,38 +237,34 @@ function mostrarVehiculos() {
         const fila =
             document.createElement("tr");
 
+        const celdaPropietario = fila.insertCell();
+        celdaPropietario.textContent = nombrePropietario;
 
-        fila.innerHTML = `
-            <td>${nombrePropietario}</td>
+        const celdaVehiculo = fila.insertCell();
+        celdaVehiculo.textContent = `${vehiculo.marca} ${vehiculo.modelo}`;
 
-            <td>
-                ${vehiculo.marca}
-                ${vehiculo.modelo}
-            </td>
+        const celdaAnio = fila.insertCell();
+        celdaAnio.textContent = vehiculo.anio;
 
-            <td>${vehiculo.anio}</td>
+        const celdaPlaca = fila.insertCell();
+        celdaPlaca.textContent = vehiculo.placa;
 
-            <td>${vehiculo.placa}</td>
+        const celdaAcciones = fila.insertCell();
 
-            <td>
+        const botonEditar = document.createElement("button");
+        botonEditar.type = "button";
+        botonEditar.className = "edit-button vehicle-edit-button";
+        botonEditar.dataset.id = vehiculo.id;
+        botonEditar.textContent = "Editar";
 
-                <button
-                    class="edit-button vehicle-edit-button"
-                    data-id="${vehiculo.id}"
-                >
-                    Editar
-                </button>
+        const botonEliminar = document.createElement("button");
+        botonEliminar.type = "button";
+        botonEliminar.className = "delete-button vehicle-delete-button";
+        botonEliminar.dataset.id = vehiculo.id;
+        botonEliminar.textContent = "Eliminar";
 
-                <button
-                    class="delete-button vehicle-delete-button"
-                    data-id="${vehiculo.id}"
-                >
-                    Eliminar
-                </button>
-
-            </td>
-        `;
-
+        celdaAcciones.appendChild(botonEditar);
+        celdaAcciones.appendChild(botonEliminar);
 
         tablaVehiculos.appendChild(fila);
 

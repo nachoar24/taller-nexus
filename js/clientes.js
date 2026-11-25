@@ -102,29 +102,31 @@ function mostrarClientes() {
         const fila =
             document.createElement("tr");
 
+        const celdaNombre = fila.insertCell();
+        celdaNombre.textContent = cliente.nombre;
 
-        fila.innerHTML = `
-            <td>${cliente.nombre}</td>
-            <td>${cliente.telefono}</td>
-            <td>${cliente.correo}</td>
+        const celdaTelefono = fila.insertCell();
+        celdaTelefono.textContent = cliente.telefono;
 
-            <td>
-                <button
-                    class="edit-button"
-                    data-id="${cliente.id}"
-                >
-                    Editar
-                </button>
+        const celdaCorreo = fila.insertCell();
+        celdaCorreo.textContent = cliente.correo;
 
-                <button
-                    class="delete-button"
-                    data-id="${cliente.id}"
-                >
-                    Eliminar
-                </button>
-            </td>
-        `;
+        const celdaAcciones = fila.insertCell();
 
+        const botonEditar = document.createElement("button");
+        botonEditar.type = "button";
+        botonEditar.className = "edit-button";
+        botonEditar.dataset.id = cliente.id;
+        botonEditar.textContent = "Editar";
+
+        const botonEliminar = document.createElement("button");
+        botonEliminar.type = "button";
+        botonEliminar.className = "delete-button";
+        botonEliminar.dataset.id = cliente.id;
+        botonEliminar.textContent = "Eliminar";
+
+        celdaAcciones.appendChild(botonEditar);
+        celdaAcciones.appendChild(botonEliminar);
 
         tablaClientes.appendChild(fila);
 

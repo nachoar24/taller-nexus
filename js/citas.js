@@ -309,37 +309,37 @@ function mostrarCitas() {
         const fila =
             document.createElement("tr");
 
+        const celdaCliente = fila.insertCell();
+        celdaCliente.textContent = nombreCliente;
 
-        fila.innerHTML = `
-            <td>${nombreCliente}</td>
+        const celdaVehiculo = fila.insertCell();
+        celdaVehiculo.textContent = nombreVehiculo;
 
-            <td>${nombreVehiculo}</td>
+        const celdaFecha = fila.insertCell();
+        celdaFecha.textContent = formatearFecha(cita.fecha);
 
-            <td>${formatearFecha(cita.fecha)}</td>
+        const celdaHora = fila.insertCell();
+        celdaHora.textContent = cita.hora;
 
-            <td>${cita.hora}</td>
+        const celdaServicio = fila.insertCell();
+        celdaServicio.textContent = cita.servicio;
 
-            <td>${cita.servicio}</td>
+        const celdaAcciones = fila.insertCell();
 
-            <td>
+        const botonEditar = document.createElement("button");
+        botonEditar.type = "button";
+        botonEditar.className = "edit-button cita-edit-button";
+        botonEditar.dataset.id = cita.id;
+        botonEditar.textContent = "Editar";
 
-                <button
-                    class="edit-button cita-edit-button"
-                    data-id="${cita.id}"
-                >
-                    Editar
-                </button>
+        const botonEliminar = document.createElement("button");
+        botonEliminar.type = "button";
+        botonEliminar.className = "delete-button cita-delete-button";
+        botonEliminar.dataset.id = cita.id;
+        botonEliminar.textContent = "Eliminar";
 
-                <button
-                    class="delete-button cita-delete-button"
-                    data-id="${cita.id}"
-                >
-                    Eliminar
-                </button>
-
-            </td>
-        `;
-
+        celdaAcciones.appendChild(botonEditar);
+        celdaAcciones.appendChild(botonEliminar);
 
         tablaCitas.appendChild(fila);
 
