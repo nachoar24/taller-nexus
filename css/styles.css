@@ -190,6 +190,22 @@ textarea {
     color: #6b7280;
 }
 
+.demo-actions {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+}
+
+.demo-help-text {
+    color: #6b7280;
+    font-size: 13px;
+    margin-bottom: 0 !important;
+}
+
 
 /* ===============================
    Paneles
