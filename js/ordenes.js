@@ -130,6 +130,25 @@ function cargarClientesOrden() {
 }
 
 
+const CLASES_ESTADO_ORDEN = {
+    "Recibido": "estado-recibido",
+    "En diagnóstico": "estado-diagnostico",
+    "En reparación": "estado-reparacion",
+    "Listo para entrega": "estado-listo",
+    "Entregado": "estado-entregado"
+};
+
+function crearEtiquetaEstadoOrden(estado) {
+    const etiqueta = document.createElement("span");
+    const claseEstado = CLASES_ESTADO_ORDEN[estado] || "estado-recibido";
+
+    etiqueta.className = `estado-badge ${claseEstado}`;
+    etiqueta.textContent = estado;
+
+    return etiqueta;
+}
+
+
 // ===============================
 // Mostrar órdenes registradas
 // ===============================
@@ -153,20 +172,34 @@ function mostrarOrdenes() {
             ? orden.estado
             : "Recibido";
 
-        // Información de la orden
-        const valores = [
-            orden.id,
-            orden.nombreCliente,
-            orden.nombreVehiculo,
-            formatearFecha(orden.fechaIngreso),
-            orden.servicio,
-            orden.descripcion,
-            estadoActual
-        ];
+        // Identificador legible de la orden
+        const celdaId = fila.insertCell();
+        celdaId.className = "orden-id-cell";
 
-        for (const valor of valores) {
-            fila.insertCell().textContent = valor;
-        }
+        const codigoId = document.createElement("span");
+        codigoId.className = "orden-id";
+        codigoId.textContent = orden.id;
+        codigoId.title = orden.id;
+        celdaId.appendChild(codigoId);
+
+        // Información de la orden
+        fila.insertCell().textContent = orden.nombreCliente;
+        fila.insertCell().textContent = orden.nombreVehiculo;
+
+        const celdaFecha = fila.insertCell();
+        celdaFecha.className = "fecha-cell";
+        celdaFecha.textContent = formatearFecha(orden.fechaIngreso);
+
+        fila.insertCell().textContent = orden.servicio;
+
+        const celdaDescripcion = fila.insertCell();
+        celdaDescripcion.className = "orden-descripcion-cell";
+        celdaDescripcion.textContent = orden.descripcion;
+
+        // Estado con etiqueta visual
+        const celdaEstado = fila.insertCell();
+        celdaEstado.className = "orden-estado-cell";
+        celdaEstado.appendChild(crearEtiquetaEstadoOrden(estadoActual));
 
         // Columna de acciones
         const celdaAcciones = fila.insertCell();
