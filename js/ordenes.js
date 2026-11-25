@@ -213,21 +213,44 @@ function mostrarOrdenes() {
 
 
 // ===============================
+// Validaciones de orden
+// ===============================
+
+function esFechaValidaOrden(fecha) {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(fecha)) {
+        return false;
+    }
+
+    const [anio, mes, dia] = fecha.split("-").map(Number);
+    const fechaObj = new Date(anio, mes - 1, dia);
+
+    return (
+        fechaObj.getFullYear() === anio &&
+        fechaObj.getMonth() === mes - 1 &&
+        fechaObj.getDate() === dia
+    );
+}
+
+
+// ===============================
 // Registrar nueva orden
 // ===============================
 
 formularioOrden.addEventListener("submit", event => {
     event.preventDefault();
 
+    const clienteId = selectClienteOrden.value.trim();
+    const vehiculoId = selectVehiculoOrden.value.trim();
+
     const cliente = obtenerClientes().find(
-        registro => registro.id === selectClienteOrden.value
+        registro => registro.id === clienteId
     );
 
     const vehiculo = obtenerVehiculos().find(
-        registro => registro.id === selectVehiculoOrden.value
+        registro => registro.id === vehiculoId
     );
 
-    const fechaIngreso = inputFechaOrden.value;
+    const fechaIngreso = inputFechaOrden.value.trim();
     const servicio = inputServicioOrden.value.trim();
     const descripcion = inputDescripcionOrden.value.trim();
 
@@ -246,8 +269,22 @@ formularioOrden.addEventListener("submit", event => {
 
     if (!fechaIngreso || !servicio || !descripcion) {
         alert(
-            "Complete la fecha de ingreso, el servicio y la descripción."
+            "Complete la fecha de ingreso, el servicio y la descripción sin dejar valores vacíos."
         );
+        return;
+    }
+
+    if (!esFechaValidaOrden(fechaIngreso)) {
+        alert(
+            "Ingrese una fecha de ingreso válida."
+        );
+        return;
+    }
+
+    const estadoInicial = ESTADOS_ORDEN[0];
+
+    if (!ESTADOS_ORDEN.includes(estadoInicial)) {
+        alert("El estado inicial de la orden no es válido.");
         return;
     }
 
@@ -262,7 +299,7 @@ formularioOrden.addEventListener("submit", event => {
         fechaIngreso,
         servicio,
         descripcion,
-        estado: "Recibido"
+        estado: estadoInicial
     };
 
     ordenes.push(nuevaOrden);

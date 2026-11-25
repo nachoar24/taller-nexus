@@ -373,6 +373,30 @@ function formatearFecha(fecha) {
 
 
 // ===============================
+// Validaciones de cita
+// ===============================
+
+function esFechaValidaCita(fecha) {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(fecha)) {
+        return false;
+    }
+
+    const [anio, mes, dia] = fecha.split("-").map(Number);
+    const fechaObj = new Date(anio, mes - 1, dia);
+
+    return (
+        fechaObj.getFullYear() === anio &&
+        fechaObj.getMonth() === mes - 1 &&
+        fechaObj.getDate() === dia
+    );
+}
+
+function esHoraValidaCita(hora) {
+    return /^([01]\d|2[0-3]):[0-5]\d$/.test(hora);
+}
+
+
+// ===============================
 // Crear o actualizar cita
 // ===============================
 
@@ -384,16 +408,16 @@ formularioCita.addEventListener(
 
 
         const clienteId =
-            selectClienteCita.value;
+            selectClienteCita.value.trim();
 
         const vehiculoId =
-            selectVehiculoCita.value;
+            selectVehiculoCita.value.trim();
 
         const fecha =
-            inputFechaCita.value;
+            inputFechaCita.value.trim();
 
         const hora =
-            inputHoraCita.value;
+            inputHoraCita.value.trim();
 
         const servicio =
             inputServicioCita.value.trim();
@@ -419,6 +443,78 @@ formularioCita.addEventListener(
         }
 
 
+        const clientes =
+            obtenerClientesCitas();
+
+        const vehiculos =
+            obtenerVehiculosCitas();
+
+        const clienteExiste =
+            clientes.find(
+                cliente => cliente.id === clienteId
+            );
+
+        if (!clienteExiste) {
+
+            alert(
+                "El cliente seleccionado no existe. Seleccione un cliente válido."
+            );
+
+            cargarClientesCita();
+            cargarVehiculosCita(selectClienteCita.value);
+            return;
+
+        }
+
+        const vehiculoExiste =
+            vehiculos.find(
+                vehiculo => vehiculo.id === vehiculoId
+            );
+
+        if (!vehiculoExiste) {
+
+            alert(
+                "El vehículo seleccionado no existe. Seleccione un vehículo válido."
+            );
+
+            cargarVehiculosCita(clienteId);
+            return;
+
+        }
+
+        if (vehiculoExiste.propietarioId !== clienteExiste.id) {
+
+            alert(
+                "El vehículo seleccionado no pertenece al cliente indicado."
+            );
+
+            cargarVehiculosCita(clienteId);
+            return;
+
+        }
+
+
+        if (!esFechaValidaCita(fecha)) {
+
+            alert(
+                "Ingrese una fecha válida para la cita."
+            );
+
+            return;
+
+        }
+
+        if (!esHoraValidaCita(hora)) {
+
+            alert(
+                "Ingrese una hora válida para la cita (formato HH:MM)."
+            );
+
+            return;
+
+        }
+
+
         const citas =
             obtenerCitas();
 
@@ -437,22 +533,31 @@ formularioCita.addEventListener(
                 );
 
 
-            if (indice !== -1) {
+            if (indice === -1) {
 
-                citas[indice] = {
+                alert(
+                    "No se encontró la cita que desea editar."
+                );
 
-                    ...citas[indice],
-
-                    clienteId,
-                    vehiculoId,
-                    fecha,
-                    hora,
-                    servicio,
-                    observaciones
-
-                };
+                limpiarFormularioCita();
+                mostrarCitas();
+                return;
 
             }
+
+
+            citas[indice] = {
+
+                ...citas[indice],
+
+                clienteId,
+                vehiculoId,
+                fecha,
+                hora,
+                servicio,
+                observaciones
+
+            };
 
         }
 

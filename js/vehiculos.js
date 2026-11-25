@@ -278,6 +278,44 @@ function mostrarVehiculos() {
 
 
 // ===============================
+// Validaciones de vehículo
+// ===============================
+
+const ANIO_MINIMO_VEHICULO = 1900;
+
+function obtenerAnioMaximoVehiculo() {
+    return new Date().getFullYear() + 1;
+}
+
+function esAnioVehiculoValido(anioTexto) {
+    if (!/^\d{4}$/.test(anioTexto)) {
+        return false;
+    }
+
+    const anioNumero = Number(anioTexto);
+    return (
+        Number.isInteger(anioNumero) &&
+        anioNumero >= ANIO_MINIMO_VEHICULO &&
+        anioNumero <= obtenerAnioMaximoVehiculo()
+    );
+}
+
+function normalizarPlacaParaComparacion(placa) {
+    return String(placa || "")
+        .trim()
+        .toUpperCase()
+        .replace(/[\s-]+/g, "");
+}
+
+function formatearPlaca(placa) {
+    return String(placa || "")
+        .trim()
+        .toUpperCase()
+        .replace(/\s+/g, " ");
+}
+
+
+// ===============================
 // Crear o actualizar vehículo
 // ===============================
 
@@ -289,7 +327,7 @@ formularioVehiculo.addEventListener(
 
 
         const propietarioId =
-            selectPropietario.value;
+            selectPropietario.value.trim();
 
         const marca =
             inputMarca.value.trim();
@@ -301,9 +339,10 @@ formularioVehiculo.addEventListener(
             inputAnio.value.trim();
 
         const placa =
-            inputPlaca.value
-                .trim()
-                .toUpperCase();
+            formatearPlaca(inputPlaca.value);
+
+        const placaNormalizada =
+            normalizarPlacaParaComparacion(placa);
 
 
         if (
@@ -311,11 +350,42 @@ formularioVehiculo.addEventListener(
             marca === "" ||
             modelo === "" ||
             anio === "" ||
-            placa === ""
+            placaNormalizada === ""
         ) {
 
             alert(
-                "Por favor complete todos los campos."
+                "Por favor complete todos los campos obligatorios sin dejar valores vacíos."
+            );
+
+            return;
+
+        }
+
+
+        const clientes =
+            obtenerClientesVehiculos();
+
+        const propietarioExiste =
+            clientes.some(
+                cliente => cliente.id === propietarioId
+            );
+
+        if (!propietarioExiste) {
+
+            alert(
+                "El propietario seleccionado no existe. Seleccione un cliente válido."
+            );
+
+            cargarPropietarios();
+            return;
+
+        }
+
+
+        if (!esAnioVehiculoValido(anio)) {
+
+            alert(
+                `Ingrese un año válido (número entero entre ${ANIO_MINIMO_VEHICULO} y ${obtenerAnioMaximoVehiculo()}).`
             );
 
             return;
@@ -330,11 +400,11 @@ formularioVehiculo.addEventListener(
             inputVehiculoId.value;
 
 
-        // Validar placas duplicadas
+        // Validar placas duplicadas usando placa normalizada
         const placaDuplicada =
             vehiculos.some(
                 vehiculo =>
-                    vehiculo.placa === placa &&
+                    normalizarPlacaParaComparacion(vehiculo.placa) === placaNormalizada &&
                     vehiculo.id !== idExistente
             );
 

@@ -134,6 +134,24 @@ function mostrarClientes() {
 
 
 // ===============================
+// Validaciones de cliente
+// ===============================
+
+function esCorreoValido(correo) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(correo);
+}
+
+function esTelefonoValido(telefono) {
+    if (!/^[+\d\s().-]+$/.test(telefono)) {
+        return false;
+    }
+
+    const soloDigitos = telefono.replace(/\D/g, "");
+    return soloDigitos.length >= 7 && soloDigitos.length <= 15;
+}
+
+
+// ===============================
 // Crear o actualizar cliente
 // ===============================
 
@@ -161,7 +179,29 @@ formularioCliente.addEventListener(
         ) {
 
             alert(
-                "Por favor complete todos los campos."
+                "Por favor complete todos los campos obligatorios sin dejar valores vacíos."
+            );
+
+            return;
+
+        }
+
+
+        if (!esTelefonoValido(telefono)) {
+
+            alert(
+                "Ingrese un número telefónico válido (por ejemplo: 8888-8888 o +506 8888-8888)."
+            );
+
+            return;
+
+        }
+
+
+        if (!esCorreoValido(correo)) {
+
+            alert(
+                "Ingrese un correo electrónico con un formato válido (por ejemplo: cliente@correo.com)."
             );
 
             return;
@@ -184,19 +224,28 @@ formularioCliente.addEventListener(
                 );
 
 
-            if (indice !== -1) {
+            if (indice === -1) {
 
-                clientes[indice] = {
+                alert(
+                    "No se encontró el cliente que desea editar."
+                );
 
-                    ...clientes[indice],
-
-                    nombre,
-                    telefono,
-                    correo
-
-                };
+                limpiarFormulario();
+                mostrarClientes();
+                return;
 
             }
+
+
+            clientes[indice] = {
+
+                ...clientes[indice],
+
+                nombre,
+                telefono,
+                correo
+
+            };
 
         }
 
